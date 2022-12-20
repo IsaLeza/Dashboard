@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contax Dashboard</title>
+    <!--MATERIALICONS-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp"
+      rel="stylesheet">
+    <!--Google Fonts (Poppins)-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!--Icon Variable-->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<link rel="stylesheet" href="./styles.css">
+
+
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="./images/logo.svg" class="logo">
+            <div class="search-bar">
+                <span class="material-icons-sharp">search</span>
+                <input type="search" id="search" placeholder="Search Tickers by Symbol">
+                <input type="button" class="btn-search" value="Search" onclick="getAPI();">
+            </div>
+            <div class="profile-area">
+                <div class="theme-btn">
+                    <span class="material-icons-sharp active">light_mode</span>
+                    <span class="material-icons-sharp">dark_mode</span>
+                </div>
+                <div class="profile">
+                    <div class="profile-photo">
+                        <img src="./images/profile-1.jpeg">
+                    </div>
+                    <h5>User</h5>
+                    <span class="material-icons-sharp">expand_more</span>
+                </div>
+                <button id="menu-btn">
+                    <span class="material-icons-sharp">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <main>
+        <aside>
+            <button style="border:none" id="close-btn">
+                <span class="material-icons-sharp">close</span>
+            </button>
+            <div class="sidebar">
+                <a href="#" class="active">
+                    <span class="material-icons-sharp">dashboard</span>
+                    <h4>Dashboard</h4>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">currency_exchange</span>
+                    <h4>Exchange</h4>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">account_balance_wallet</span>
+                    <h4>Wallet</h4>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">payment</span>
+                    <h4>Transactions</h4>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">pie_chart</span>
+                    <h4>Analytics</h4>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">message</span>
+                    <h4>Messages</h4>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">help_center</span>
+                    <h4>Help Center</h4>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">settings</span>
+                    <h4>Settings</h4>
+                </a>
+            </div>
+            <!--End of Sidebar-->
+            <div class="updates">
+                <span class="material-icons-sharp">update</span>
+                <h4>Updates Available</h4>
+                <small>Security Updates</small>
+                <small>General Updates</small>
+                <a href="#">Update Now</a>
+            </div>
+        </aside>
+        <!--End of Aside-->
+        <section class="middle">
+            <div class="header-1">
+                <h1>Dashboard</h1>
+                <span class="clock" id="span"></span>
+            </div>
+            <div class="cards">
+                <div class="card">
+                    <div class="top">
+                        <div class="left">
+                            <img src="./images/Triangulo_Arriba.png" class="right">
+                            <h2>HIGH</h2>
+                        </div>
+                        
+                    </div>
+                    <div class="middle">
+                        <h1>$USD<span id="up"></span>
+                        </h1>
+                                                
+                    </div>
+                    <div class="bottom">
+                        <div class="left">
+                            <small></small>
+                        </div>
+                        
+                    </div>
+                </div>
+                <!--End of CARD 1-->
+                <div class="card">
+                    <div class="top">
+                        <div class="left">
+                            <img src="./images/ETH.png" class="right">
+                            <h2>ETHEREUM / EURO</h2>
+                        </div>
+                        
+                    </div>
+                    <div class="middle">
+                        <h1>€<span id="stock-price"></span></h1>
+                        
+                    </div>
+                    <div class="bottom">
+                        <div class="left">
+                            <small>Current Price of Ethereum in Euro</small>
+                            
+                        </div>
+                    </div>
+                </div>
+                <!--End of CARD 2-->
+                <div class="card">
+                    <div class="top">
+                        <div class="left">
+                            <img src="./images/Triangulo_Abajo.png" class="right">
+                            <h2>LOW</h2>
+                        </div>
+                        
+                    </div>
+                    <div class="middle">
+                        <h1>$USD<span id="litecoin"></span></h1>
+                        
+                    </div>  
+                    <div class="bottom">
+                        <div class="left">
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+                <!--End of CARD 3-->
+            </div>
+            <!--End of cards-->
+           
+            <!--End of monthly reports-->
+            
+    
+            <!--END OF FAST PAYMENT-->
+            
+            <canvas id="chart"></canvas>
+
+          
+            
+      
+
+            
+
+        </section>
+        <!--End of Middle-->
+        
+        <section class="right">
+            <div class="investments">
+                <div class="header-1">
+                    <h2>Trending Tickers</h2>
+                <a href="#">More<span class="material-icons-sharp">
+                    chevron_right
+                    </span></a>
+                </div>
+
+                <div class="investment" onclick="requestAAPL();">
+                    <img src="./images/Apple.png" alt="">
+                    <h4>AAPL</h4>
+                    <div class="date-time">
+                        <p>7 Nov, 2022</p>
+                        <small class="text-muted">9:14pm</small>
+                    </div>
+                    <div class="bonds">
+                        <p>1402</p>
+                        <small class="text-muted">
+                            Bonds
+                        </small>
+                    </div>
+                    <div class="amount">
+                        <h4>$20,033</h4>
+                        <small class="danger">-4.27%</small>
+                    </div>
+                </div>
+                <!--END OF INVESTMENET-->
+                
+                <div class="investment">
+                    <img src="./images/tesla.png" alt="">
+                    <h4>TSLA</h4>
+                    <div class="date-time">
+                        <p>1 Dec, 2022</p>
+                        <small class="text-muted">8:54am</small>
+                    </div>
+                    <div class="bonds">
+                        <p>5377</p>
+                        <small class="text-muted">
+                            Bonds
+                        </small>
+                    </div>
+                    <div class="amount">
+                        <h4>$720,110</h4>
+                        <small class="success">+38.27%</small>
+                    </div>
+                </div>
+                <!--END OF INVESTMENET-->
+                <div class="investment">
+                    <img src="./images/Amazon.png" alt="">
+                    <h4>AMZN</h4>
+                    <div class="date-time">
+                        <p>1 Dec, 2022</p>
+                        <small class="text-muted">4:02pm</small>
+                    </div>
+                    <div class="bonds">
+                        <p>700</p>
+                        <small class="text-muted">
+                            Bonds
+                        </small>
+                    </div>
+                    <div class="amount">
+                        <h4>$13,110</h4>
+                        <small class="success">+7.27%</small>
+                    </div>
+                </div>
+                <!--END OF INVESTMENET-->
+                <div class="investment">
+                    <img src="./images/mcdonalds.png" alt="">
+                    <h4>MCD</h4>  
+                    <div class="date-time">
+                        <p>7 Nov, 2022</p>
+                        <small class="text-muted">9:14pm</small>
+                    </div>
+                    <div class="bonds">
+                        <p>1402</p>
+                        <small class="text-muted">
+                            Bonds
+                        </small>
+                    </div>
+                    <div class="amount">
+                        <h4>$20,033</h4>
+                        <small class="danger">-4.27%</small>
+                    </div>
+                </div>
+                <!--END OF INVESTMENET-->
+            </div>
+            <!--END OF INVESTMENTS-->
+                         
+                
+                
+        </section>
+        <!--End of Right-->
+    </main>
+    <!--================End of Aside-->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js" integrity="sha512-GMGzUEevhWh8Tc/njS0bDpwgxdCJLQBWG3Z2Ct+JGOpVnEmjvNx6ts4v6A2XJf1HOrtOsfhv3hBKpK9kE5z8AQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="./main.js"></script>
+</body>
+</html>
