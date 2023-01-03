@@ -1,7 +1,7 @@
 {
-  "name": "dashboard_uclass",
+  "name": "dashboard_final",
   "version": "1.0.0",
-  "description": "proyecto",
+  "description": "",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,15 +10,8 @@
     "type": "git",
     "url": "git+https://github.com/IsaLeza/-IsaLeza.github.io.git"
   },
-  "keywords": [
-    "dashboard",
-    "tickers",
-    "stockmarket",
-    "stockprice",
-    "stocks",
-    "finances"
-  ],
-  "author": "Isaias Lezama",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/IsaLeza/-IsaLeza.github.io/issues"

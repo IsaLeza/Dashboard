@@ -444,9 +444,7 @@ main section.middle .card .middle {
     display: flex;
     justify-content: space-between;
 }
-main section.middle .card .middle .chip {
-    width: 3.5rem;
-}
+
 
 main section.middle .card .bottom{
     display: flex;
@@ -644,9 +642,7 @@ main section.right .investments .header-1 a{
 
  /* ============= MEDIA QUERIES FOR TABLEtS ===========*/
  @media screen and (max-width: 1024px) {
-   header .search-bar{
-    display: none;
-   }
+  
 
    header .profile-area {
     gap: 2rem;

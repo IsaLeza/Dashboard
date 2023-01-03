@@ -24,7 +24,7 @@
             <img src="./images/logo.svg" class="logo">
             <div class="search-bar">
                 <span class="material-icons-sharp">search</span>
-                <input type="search" id="search" placeholder="Search Tickers by Symbol">
+                <input type="search" id="search" placeholder="Search Symbol Ex: AMZN, AAPL, MSFT">
                 <input type="button" class="btn-search" value="Search" onclick="getAPI();">
             </div>
             <div class="profile-area">
@@ -164,119 +164,14 @@
             </div>
             <!--End of cards-->
            
-            <!--End of monthly reports-->
-            
-    
-            <!--END OF FAST PAYMENT-->
-            
             <canvas id="chart"></canvas>
-
-          
-            
-      
-
-            
-
+            <div id="table_container"></div>    
         </section>
-        <!--End of Middle-->
-        
-        <section class="right">
-            <div class="investments">
-                <div class="header-1">
-                    <h2>Trending Tickers</h2>
-                <a href="#">More<span class="material-icons-sharp">
-                    chevron_right
-                    </span></a>
-                </div>
-
-                <div class="investment" onclick="requestAAPL();">
-                    <img src="./images/Apple.png" alt="">
-                    <h4>AAPL</h4>
-                    <div class="date-time">
-                        <p>7 Nov, 2022</p>
-                        <small class="text-muted">9:14pm</small>
-                    </div>
-                    <div class="bonds">
-                        <p>1402</p>
-                        <small class="text-muted">
-                            Bonds
-                        </small>
-                    </div>
-                    <div class="amount">
-                        <h4>$20,033</h4>
-                        <small class="danger">-4.27%</small>
-                    </div>
-                </div>
-                <!--END OF INVESTMENET-->
-                
-                <div class="investment">
-                    <img src="./images/tesla.png" alt="">
-                    <h4>TSLA</h4>
-                    <div class="date-time">
-                        <p>1 Dec, 2022</p>
-                        <small class="text-muted">8:54am</small>
-                    </div>
-                    <div class="bonds">
-                        <p>5377</p>
-                        <small class="text-muted">
-                            Bonds
-                        </small>
-                    </div>
-                    <div class="amount">
-                        <h4>$720,110</h4>
-                        <small class="success">+38.27%</small>
-                    </div>
-                </div>
-                <!--END OF INVESTMENET-->
-                <div class="investment">
-                    <img src="./images/Amazon.png" alt="">
-                    <h4>AMZN</h4>
-                    <div class="date-time">
-                        <p>1 Dec, 2022</p>
-                        <small class="text-muted">4:02pm</small>
-                    </div>
-                    <div class="bonds">
-                        <p>700</p>
-                        <small class="text-muted">
-                            Bonds
-                        </small>
-                    </div>
-                    <div class="amount">
-                        <h4>$13,110</h4>
-                        <small class="success">+7.27%</small>
-                    </div>
-                </div>
-                <!--END OF INVESTMENET-->
-                <div class="investment">
-                    <img src="./images/mcdonalds.png" alt="">
-                    <h4>MCD</h4>  
-                    <div class="date-time">
-                        <p>7 Nov, 2022</p>
-                        <small class="text-muted">9:14pm</small>
-                    </div>
-                    <div class="bonds">
-                        <p>1402</p>
-                        <small class="text-muted">
-                            Bonds
-                        </small>
-                    </div>
-                    <div class="amount">
-                        <h4>$20,033</h4>
-                        <small class="danger">-4.27%</small>
-                    </div>
-                </div>
-                <!--END OF INVESTMENET-->
-            </div>
-            <!--END OF INVESTMENTS-->
-                         
-                
-                
-        </section>
-        <!--End of Right-->
+               
     </main>
-    <!--================End of Aside-->
+    
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js" integrity="sha512-GMGzUEevhWh8Tc/njS0bDpwgxdCJLQBWG3Z2Ct+JGOpVnEmjvNx6ts4v6A2XJf1HOrtOsfhv3hBKpK9kE5z8AQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js" integrity="sha512-GMGzUEevhWh8Tc/njS0bDpwgxdCJLQBWG3Z2Ct+JGOpVnEmjvNx6ts4v6A2XJf1HOrtOsfhv3hBKpK9kE5z8AQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="./main.js"></script>
 </body>
 </html>

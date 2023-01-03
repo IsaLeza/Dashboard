@@ -1,23 +1,98 @@
+let apiConatiner = document.querySelector ('#apiContainer')
 let searchTickers = document.querySelector ('#search')
 let tickerSymbol = document.querySelector ('#symbol')
+let timeSeries = [];
+let openPrice = [];
+let highPrice = [];
+let lowPrice = [];
+let closePrice = [];
+let volume = [];
+
 
 async function getAPI() {
     const tickers = searchTickers.value;
     const url = 'https://alpha-vantage.p.rapidapi.com/query?interval=5min&function=TIME_SERIES_INTRADAY&symbol='+tickers+'&datatype=json&output_size=compact'
     const options = {
-        method: 'GET',
+       method: 'GET',
         headers: {
-            'X-RapidAPI-Key': '1f81ae5df0msh9faa94239f0d099p13aa46jsn44cb9f50583f',
-            'X-RapidAPI-Host': 'alpha-vantage.p.rapidapi.com'
-        }
-    };
+           'X-RapidAPI-Key': '1f81ae5df0msh9faa94239f0d099p13aa46jsn44cb9f50583f',
+           'X-RapidAPI-Host': 'alpha-vantage.p.rapidapi.com'
+       }
+   };
     
+   
     const response = await fetch(url, options);
     const data =  await response.json();
-    console.log(data);
-    //console.log(JSON.stringify(data));
-};
+   // console.log(data)
+    
+    for (var key in data ['Time Series (5min)']){
+        timeSeries.push(key);
+        openPrice.push(data['Time Series (5min)'][key]['1. open']);  
+        highPrice.push(data['Time Series (5min)'][key]['2. high']);  
+        lowPrice.push(data['Time Series (5min)'][key]['3. low']);  
+        closePrice.push(data['Time Series (5min)'][key]['4. close']); 
+       // volume.push(data['Time Series (5min)'][key]['5. volume']);  
+             
+     console.log(closePrice);
+ 
+        
+    
+        
+    
+    } 
 
+
+
+// CHART
+
+var ctx = document.getElementById('chart').getContext('2d');
+var chart = new Chart(ctx,{
+    type: 'line',
+    data: {
+        labels: timeSeries,
+        datasets: [{
+            label: 'OPEN',
+            backgroudColor: 'blue',
+            borderColor: 'blue',
+            data: openPrice
+        },
+        {
+            label: 'HIGH',
+            backgroudColor: 'green',
+            borderColor: 'green',
+            data: highPrice,
+        },
+        {
+            label: 'LOW',
+            backgroudColor: 'red',
+            borderColor: 'red',
+            data: lowPrice,
+        },
+        {
+            label: 'CLOSE',
+            backgroudColor: 'yellow',
+            borderColor: 'yellow',
+            data: closePrice,
+        },
+        {
+            label: 'VOLUME',
+            backgroudColor: 'orange',
+            borderColor: 'orange',
+            data: volume,
+        },
+    
+    
+    
+    ]
+        },
+    options: {
+        tooltips:{
+            mode: 'index'
+        }
+    }    
+})
+    
+   
 //END OF CURRENTLY STOCK TICKERS PRICE WITH FETCH
 
 //Getting ETH live price in Euros using web sockets
@@ -53,34 +128,8 @@ function time() {
 setInterval(time, 1000);
 
 //END OF WATCH ==============================================================
+//======================Chart=========================================
 
-const chart = document.querySelector("#chart").getContext('2d');
-
-// create a new chart instance
-new Chart(chart,{
-    type: 'line',
-    data: {
-        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov',],
-
-        datasets: [
-            {
-                label: 'USD/MXN',
-                data: [19.32, 20.22, 20.05, 20.77, 21.12, 20.44, 19.99, 19.78,19.34,19.74, 19.24],
-                borderColor: 'red',
-                borderWidth: 2
-            },
-            {
-                label: 'EUR/MXN',
-                data: [23.41, 23.18, 23.09, 23.29, 21.80, 21.36, 21.01, 20.72, 20.63, 19.96, 19.51],
-                borderColor: 'purple',
-                borderWidth: 2
-            },
-        ]
-    },
-    options: {
-        responsive: true
-    }
-})
 
 //SHOW OR HIDE SIDEBAR ========================================================================
 const menuBtn = document.querySelector('#menu-btn');
@@ -105,4 +154,4 @@ themeBtn.addEventListener('click', () => {
     
     themeBtn.querySelector('span:last-child').classList.toggle('active');
 })
-
+}
